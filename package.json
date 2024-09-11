@@ -1,0 +1,17 @@
+{
+  "name": "iran-hotels-scraper",
+  "version": "1.0.0",
+  "description": "A web scraper using Puppeteer for extracting hotel names from all cities in Iran on SnappTrip.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "puppeteer": "^19.7.2",
+    "csv-writer": "^1.6.0"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "license": "MIT"
+}
