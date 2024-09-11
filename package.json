@@ -1,0 +1,17 @@
+{
+  "name": "snapptrip-scraper",
+  "version": "1.0.0",
+  "description": "A web scraper for extracting hotel information from Snapp Trip.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "playwright-chromium": "^1.34.0",
+    "csv-writer": "^1.6.0"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "license": "MIT"
+}
