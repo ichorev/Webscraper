@@ -92,7 +92,7 @@ async function scrapeAllIranHotels() {
         '--single-process'
       ],
       headless: "new",
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable',
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
     });
     console.log('Browser launched successfully');
 
@@ -130,7 +130,6 @@ async function scrapeAllIranHotels() {
 async function main() {
   try {
     console.log('Starting to scrape all hotels in Iran...');
-    console.log('Puppeteer cache dir:', process.env.PUPPETEER_CACHE_DIR);
     console.log('Puppeteer executable path:', process.env.PUPPETEER_EXECUTABLE_PATH);
     
     const hotels = await scrapeAllIranHotels();
