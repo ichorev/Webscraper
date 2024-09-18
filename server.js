@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-firefox');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs').promises;
 
@@ -83,18 +83,13 @@ async function scrapeAllIranHotels() {
   let allHotels = [];
 
   try {
-    console.log('Launching browser...');
+    console.log('Launching Firefox browser...');
     browser = await puppeteer.launch({
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--single-process'
-      ],
-      headless: "new",
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: true,
+      product: 'firefox'
     });
-    console.log('Browser launched successfully');
+    console.log('Firefox browser launched successfully');
 
     const homePage = await fetchPage(browser, `${baseUrl}/iran-hotels`);
     const cityLinks = await homePage.evaluate(() => {
@@ -130,7 +125,6 @@ async function scrapeAllIranHotels() {
 async function main() {
   try {
     console.log('Starting to scrape all hotels in Iran...');
-    console.log('Puppeteer executable path:', process.env.PUPPETEER_EXECUTABLE_PATH);
     
     const hotels = await scrapeAllIranHotels();
     
