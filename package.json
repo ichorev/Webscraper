@@ -4,10 +4,14 @@
   "description": "A web scraper for extracting hotel names from all cities in Iran on SnappTrip.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "install-browser": "npx puppeteer browsers install firefox",
+    "postinstall": "npm run install-browser",
+    "build": "npm install && npm run install-browser",
+    "scrape": "node server.js"
   },
   "dependencies": {
-    "puppeteer": "22.8.2",
+    "puppeteer-firefox": "^0.5.1",
     "csv-writer": "^1.6.0"
   },
   "engines": {
